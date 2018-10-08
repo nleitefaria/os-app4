@@ -5,7 +5,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @RestController
 public class SpringdemoController {
-  @RequestMapping("/hello")
+  
+  @GetMapping(value = "/hello")
   public String index() {
     return "Hello!";
   }
