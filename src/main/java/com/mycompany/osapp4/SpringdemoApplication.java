@@ -12,15 +12,15 @@ import org.springframework.context.annotation.Configuration;
 @ComponentScan
 @EnableAutoConfiguration
 @SpringBootApplication
-public class Application extends SpringBootServletInitializer {
+public class SpringdemoApplication extends SpringBootServletInitializer {
 
     public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
+        SpringApplication.run(SpringdemoApplication.class, args);
     }
 
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-        return application.sources(Application.class);
+        return application.sources(SpringdemoApplication.class);
     }
 
 }
