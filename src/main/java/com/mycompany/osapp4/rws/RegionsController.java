@@ -13,12 +13,7 @@ public class RegionsController
 {
 	@Autowired
 	RegionsServiceImpl regionsService;
-	
-	@GetMapping(value = "/regions/count")
-    public String findAll() {
-        return "findAll products";
-    }
-	
+
 	@GetMapping("/regions/count")
 	public ResponseEntity<Long> cout()
 	{
