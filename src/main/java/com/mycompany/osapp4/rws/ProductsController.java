@@ -8,7 +8,7 @@ public class ProductsController {
 	
 	@GetMapping(value = "/products")
     public String findAll() {
-        return "hello";
+        return "findAll products";
     }
 
 }
