@@ -11,27 +11,28 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.mycompany.osapp4.entity.Locations;
-import com.mycompany.osapp4.service.LocationsService;
+import com.mycompany.osapp4.entity.Employees;
+import com.mycompany.osapp4.service.EmployeesService;
 
 @RestController
-public class LocationsController
+public class EmployeesController
 {
-	private static final Logger logger = LoggerFactory.getLogger(LocationsController.class); 
+	private static final Logger logger = LoggerFactory.getLogger(EmployeesController.class); 
 	
 	@Autowired
-	LocationsService service;
+	EmployeesService service;
 
-	@RequestMapping(value = "/locations/count", method = RequestMethod.GET)
+	@RequestMapping(value = "/employees/count", method = RequestMethod.GET)
 	public ResponseEntity<Long> count()
 	{		
 		return new ResponseEntity<Long>(service.count(), HttpStatus.OK);
 	}
 	
-	@RequestMapping(value = "/locations", method = RequestMethod.GET)
-	public ResponseEntity<List<Locations>> findAll()
+	@RequestMapping(value = "/employees", method = RequestMethod.GET)
+	public ResponseEntity<List<Employees>> findAll()
 	{		
-		return new ResponseEntity<List<Locations>>(service.findAll(), HttpStatus.OK);
+		return new ResponseEntity<List<Employees>>(service.findAll(), HttpStatus.OK);
 	}
+	
 
 }
