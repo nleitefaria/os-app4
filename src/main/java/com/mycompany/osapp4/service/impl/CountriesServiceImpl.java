@@ -8,7 +8,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.mycompany.osapp4.entity.Countries;
 import com.mycompany.osapp4.repository.CountriesRepository;
-import com.mycompany.osapp4.repository.LocationsRepository;
 import com.mycompany.osapp4.service.CountriesService;
 
 @Service
@@ -18,15 +17,15 @@ public class CountriesServiceImpl implements CountriesService
 	private CountriesRepository repository;
 
 	@Transactional
-	public Long count() {
-		// TODO Auto-generated method stub
-		return null;
+	public Long count() 
+	{
+		return repository.count();
 	}
 
 	@Transactional
-	public List<Countries> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Countries> findAll() 
+	{
+		return repository.findAll();
 	}
 
 }
