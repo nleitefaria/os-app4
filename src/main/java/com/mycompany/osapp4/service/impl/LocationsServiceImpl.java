@@ -6,15 +6,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.mycompany.osapp4.entity.Regions;
-import com.mycompany.osapp4.repository.RegionsRepository;
-import com.mycompany.osapp4.service.RegionsService;
+import com.mycompany.osapp4.entity.Locations;
+import com.mycompany.osapp4.repository.LocationsRepository;
+import com.mycompany.osapp4.service.LocationsService;
 
 @Service
-public class RegionsServiceImpl implements RegionsService
+public class LocationsServiceImpl implements LocationsService
 {
 	@Autowired
-	private RegionsRepository repository;
+	private LocationsRepository repository;
 	
 	@Transactional
 	public Long count()
@@ -23,11 +23,10 @@ public class RegionsServiceImpl implements RegionsService
 	}
 	
 	@Transactional
-	public List<Regions> findAll()
+	public List<Locations> findAll()
 	{
 		return repository.findAll();
 	}
-
-
+	
 
 }
