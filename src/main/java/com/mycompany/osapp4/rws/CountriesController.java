@@ -9,25 +9,27 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.mycompany.osapp4.entity.Countries;
 import com.mycompany.osapp4.entity.Locations;
+import com.mycompany.osapp4.service.CountriesService;
 import com.mycompany.osapp4.service.LocationsService;
 
 @RestController
-public class LocationsController
+public class CountriesController 
 {
 	@Autowired
-	LocationsService service;
+	CountriesService service;
 
-	@RequestMapping(value = "/locations/count", method = RequestMethod.GET)
+	@RequestMapping(value = "/countries/count", method = RequestMethod.GET)
 	public ResponseEntity<Long> count()
 	{		
 		return new ResponseEntity<Long>(service.count(), HttpStatus.OK);
 	}
 	
-	@RequestMapping(value = "/locations", method = RequestMethod.GET)
-	public ResponseEntity<List<Locations>> findAll()
+	@RequestMapping(value = "/countries", method = RequestMethod.GET)
+	public ResponseEntity<List<Countries>> findAll()
 	{		
-		return new ResponseEntity<List<Locations>>(service.findAll(), HttpStatus.OK);
+		return new ResponseEntity<List<Countries>>(service.findAll(), HttpStatus.OK);
 	}
 
 }
