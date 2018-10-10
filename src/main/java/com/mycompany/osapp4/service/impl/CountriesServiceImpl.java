@@ -27,5 +27,11 @@ public class CountriesServiceImpl implements CountriesService
 	{
 		return repository.findAll();
 	}
+	
+	@Transactional
+	public Countries findOne(String id) 
+	{
+		return repository.findOne(id);
+	}
 
 }

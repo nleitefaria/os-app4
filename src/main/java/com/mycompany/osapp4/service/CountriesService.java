@@ -8,5 +8,6 @@ public interface CountriesService
 {
 	Long count();
 	List<Countries> findAll();
+	Countries findOne(String id);
 
 }
