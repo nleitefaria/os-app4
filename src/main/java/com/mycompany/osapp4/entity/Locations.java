@@ -22,8 +22,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Entity
 @Table(name = "locations", catalog = "sql7260427")
 public class Locations implements java.io.Serializable {
+	
 	private Integer locationId;
+	
 	private Countries countries;
+	
 	private String streetAddress;
 	private String postalCode;
 	private String city;
