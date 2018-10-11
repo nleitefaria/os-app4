@@ -6,38 +6,47 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.mycompany.osapp4.dto.CountriesDTO;
 import com.mycompany.osapp4.entity.Countries;
+import com.mycompany.osapp4.entity.Regions;
 import com.mycompany.osapp4.repository.CountriesRepository;
+import com.mycompany.osapp4.repository.RegionsRepository;
 import com.mycompany.osapp4.service.CountriesService;
 
 @Service
 public class CountriesServiceImpl implements CountriesService 
 {
 	@Autowired
-	private CountriesRepository repository;
+	private CountriesRepository repository1;
+	
+	@Autowired
+	private RegionsRepository repository2;
 
 	@Transactional
 	public Long count() 
 	{
-		return repository.count();
+		return repository1.count();
 	}
 
 	@Transactional
 	public List<Countries> findAll() 
 	{
-		return repository.findAll();
+		return repository1.findAll();
 	}
 	
 	@Transactional
 	public Countries findOne(String id) 
 	{
-		return repository.findOne(id);
+		return repository1.findOne(id);
 	}
 	
 	@Transactional
-	public Countries save(Countries country) 
+	public Countries save(CountriesDTO countryDTO) 
 	{
-		return repository.save(country);
+		Integer regionId = countryDTO.getRegionID(); 
+		Regions region = repository2.findOne(regionId);
+		Countries country = new Countries(countryDTO.getCountryId(), region);
+		return repository1.save(country);
 	}
 
 }

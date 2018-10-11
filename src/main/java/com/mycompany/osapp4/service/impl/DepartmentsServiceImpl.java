@@ -34,6 +34,12 @@ public class DepartmentsServiceImpl implements DepartmentsService
 		return repository.findOne(Integer.parseInt(id));
 	}
 	
+	@Transactional
+	public Departments save(Departments departments) 
+	{
+		return repository.save(departments);
+	}
+	
 	
 
 }

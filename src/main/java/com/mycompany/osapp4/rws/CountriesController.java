@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.mycompany.osapp4.dto.CountriesDTO;
 import com.mycompany.osapp4.entity.Countries;
 import com.mycompany.osapp4.service.CountriesService;
 
@@ -43,9 +44,9 @@ public class CountriesController
 	}
 	
 	@RequestMapping(value = "/country", method = RequestMethod.POST)
-	public ResponseEntity<Countries> save(@RequestBody Countries country)
+	public ResponseEntity<Countries> save(@RequestBody CountriesDTO countryDTO)
 	{		
-		return new ResponseEntity<Countries>(service.save(country), HttpStatus.CREATED);
+		return new ResponseEntity<Countries>(service.save(countryDTO), HttpStatus.CREATED);
 	}
 
 

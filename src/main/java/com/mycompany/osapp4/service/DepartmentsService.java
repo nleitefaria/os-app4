@@ -9,4 +9,5 @@ public interface DepartmentsService
 	Long count();
 	List<Departments> findAll();
 	Departments findOne(String id);
+	Departments save(Departments departments);
 }
