@@ -45,7 +45,13 @@ public class CountriesController
 	
 	@RequestMapping(value = "/country", method = RequestMethod.POST)
 	public ResponseEntity<Countries> save(@RequestBody CountriesDTO countryDTO)
-	{		
+	{
+		System.out.println("************************");
+		System.out.println("countryId: " + countryDTO.getCountryId());
+		System.out.println("regionId: " + countryDTO.getRegionID());
+		System.out.println("countryName" + countryDTO.getCountryName());
+		System.out.println("************************");
+		
 		return new ResponseEntity<Countries>(service.save(countryDTO), HttpStatus.CREATED);
 	}
 
