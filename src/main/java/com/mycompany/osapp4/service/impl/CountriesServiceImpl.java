@@ -45,18 +45,8 @@ public class CountriesServiceImpl implements CountriesService
 	{
 		Integer regionId = countryDTO.getRegionID(); 
 		Regions region = repository2.findOne(regionId);
-		
-		System.out.println("+++++++++++++++++++++++++++++++++++++++");
-		System.out.println("countryId: " + countryDTO.getCountryId());
-		System.out.println("regionId: " + countryDTO.getRegionID());
-		
-		System.out.println("regionId: " + region.getRegionId());
-		System.out.println("regionName: " + region.getRegionId());
-		
-		System.out.println("countryName" + countryDTO.getCountryName());
-		System.out.println("+++++++++++++++++++++++++++++++++++++++++");
-		
 		Countries country = new Countries(countryDTO.getCountryId(), region);
+		country.setCountryName(countryDTO.getCountryName());
 		return repository1.save(country);
 	}
 
