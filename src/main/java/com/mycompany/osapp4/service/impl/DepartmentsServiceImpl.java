@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.mycompany.osapp4.dto.DepartmentsDTO;
 import com.mycompany.osapp4.entity.Departments;
 import com.mycompany.osapp4.repository.DepartmentsRepository;
 import com.mycompany.osapp4.service.DepartmentsService;
@@ -35,8 +36,9 @@ public class DepartmentsServiceImpl implements DepartmentsService
 	}
 	
 	@Transactional
-	public Departments save(Departments departments) 
+	public Departments save(DepartmentsDTO departmentsDTO) 
 	{
+		Departments departments = new Departments(departmentsDTO.getDepartmentId(), departmentsDTO.getDepartmentName());
 		return repository.save(departments);
 	}
 	

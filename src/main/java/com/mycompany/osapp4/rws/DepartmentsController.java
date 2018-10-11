@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.mycompany.osapp4.dto.DepartmentsDTO;
 import com.mycompany.osapp4.entity.Departments;
 import com.mycompany.osapp4.service.DepartmentsService;
 
@@ -43,9 +44,11 @@ public class DepartmentsController
 	}
 	
 	@RequestMapping(value = "/department", method = RequestMethod.POST)
-	public ResponseEntity<Departments> save(@RequestBody Departments department)
-	{		
-		return new ResponseEntity<Departments>(service.save(department), HttpStatus.CREATED);
+	public ResponseEntity<Departments> save(@RequestBody DepartmentsDTO departmentDTO)
+	{
+		return new ResponseEntity<Departments>(service.save(departmentDTO), HttpStatus.CREATED);
 	}
+	
+	
 
 }
