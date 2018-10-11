@@ -33,5 +33,11 @@ public class CountriesServiceImpl implements CountriesService
 	{
 		return repository.findOne(id);
 	}
+	
+	@Transactional
+	public Countries save(Countries country) 
+	{
+		return repository.save(country);
+	}
 
 }
