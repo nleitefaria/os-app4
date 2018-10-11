@@ -28,6 +28,12 @@ public class DepartmentsServiceImpl implements DepartmentsService
 		return repository.findAll();
 	}
 	
+	@Transactional
+	public Departments findOne(String id)
+	{
+		return repository.findOne(Integer.parseInt(id));
+	}
+	
 	
 
 }

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.mycompany.osapp4.entity.Departments;
 import com.mycompany.osapp4.entity.Employees;
 import com.mycompany.osapp4.repository.EmployeesRepository;
 import com.mycompany.osapp4.service.EmployeesService;
@@ -26,6 +27,12 @@ public class EmployeesServiceImpl implements EmployeesService
 	public List<Employees> findAll() 
 	{
 		return repository.findAll();		
+	}
+	
+	@Transactional
+	public Employees findOne(String id)
+	{
+		return repository.findOne(Integer.parseInt(id));
 	}
 
 }

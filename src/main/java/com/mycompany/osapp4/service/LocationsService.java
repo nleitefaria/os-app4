@@ -8,5 +8,6 @@ public interface LocationsService
 {
 	Long count();
 	List<Locations> findAll();
+	Locations findOne(String id);
 
 }

@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -32,6 +33,12 @@ public class DepartmentsController
 	public ResponseEntity<List<Departments>> findAll()
 	{		
 		return new ResponseEntity<List<Departments>>(service.findAll(), HttpStatus.OK);
+	}
+	
+	@RequestMapping(value = "/department/{id}", method = RequestMethod.GET)
+	public ResponseEntity<Departments> findOne(@PathVariable String id)
+	{		
+		return new ResponseEntity<Departments>(service.findOne(id), HttpStatus.OK);
 	}
 
 }

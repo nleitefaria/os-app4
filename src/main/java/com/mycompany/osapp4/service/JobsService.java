@@ -8,5 +8,6 @@ public interface JobsService
 {
 	Long count();
 	List<Jobs> findAll();
+	Jobs findOne(String id);
 
 }

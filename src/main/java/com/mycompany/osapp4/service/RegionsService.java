@@ -8,5 +8,6 @@ public interface RegionsService
 {
 	Long count();
 	List<Regions> findAll();
+	Regions findOne(String id);
 
 }

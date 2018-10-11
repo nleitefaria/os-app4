@@ -8,5 +8,6 @@ public interface EmployeesService
 {
 	Long count();
 	List<Employees> findAll();
+	Employees findOne(String id);
 
 }

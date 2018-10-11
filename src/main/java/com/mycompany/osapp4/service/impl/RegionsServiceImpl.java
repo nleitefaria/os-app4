@@ -27,6 +27,12 @@ public class RegionsServiceImpl implements RegionsService
 	{
 		return repository.findAll();
 	}
+	
+	@Transactional
+	public Regions findOne(String id)
+	{
+		return repository.findOne(Integer.parseInt(id));
+	}
 
 
 

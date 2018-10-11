@@ -28,5 +28,11 @@ public class LocationsServiceImpl implements LocationsService
 		return repository.findAll();
 	}
 	
+	@Transactional
+	public Locations findOne(String id)
+	{
+		return repository.findOne(Integer.parseInt(id));
+	}
+	
 
 }

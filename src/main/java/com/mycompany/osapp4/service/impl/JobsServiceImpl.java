@@ -28,5 +28,11 @@ public class JobsServiceImpl implements JobsService
 		return repository.findAll();
 	}
 	
+	@Transactional
+	public Jobs findOne(String id)
+	{
+		return repository.findOne(id);
+	}
+	
 
 }

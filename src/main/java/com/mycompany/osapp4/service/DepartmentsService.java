@@ -8,4 +8,5 @@ public interface DepartmentsService
 {	
 	Long count();
 	List<Departments> findAll();
+	Departments findOne(String id);
 }
