@@ -8,10 +8,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.mycompany.osapp4.dto.RegionsDTO;
 import com.mycompany.osapp4.entity.Regions;
 import com.mycompany.osapp4.service.RegionsService;
 
@@ -41,6 +43,9 @@ public class RegionsController
 		return new ResponseEntity<Regions>(service.findOne(id), HttpStatus.OK);
 	}
 	
-	
-	
+	@RequestMapping(value = "/region", method = RequestMethod.POST)
+	public ResponseEntity<Regions> save(@RequestBody RegionsDTO regionsDTO)
+	{
+		return new ResponseEntity<Regions>(service.save(regionsDTO), HttpStatus.CREATED);
+	}	
 }
