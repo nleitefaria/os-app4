@@ -6,10 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.mycompany.osapp4.dto.JobsDTO;
 import com.mycompany.osapp4.dto.LocationsDTO;
 import com.mycompany.osapp4.entity.Countries;
-import com.mycompany.osapp4.entity.Jobs;
 import com.mycompany.osapp4.entity.Locations;
 import com.mycompany.osapp4.repository.CountriesRepository;
 import com.mycompany.osapp4.repository.LocationsRepository;
