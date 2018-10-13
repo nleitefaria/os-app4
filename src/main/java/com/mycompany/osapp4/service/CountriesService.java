@@ -14,4 +14,5 @@ public interface CountriesService
 	Page<Countries> findAll(int page, int size);
 	Countries findOne(String id);
 	Countries save(CountriesDTO countryDTO);
+	Countries update(CountriesDTO countryDTO);
 }

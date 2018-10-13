@@ -44,17 +44,23 @@ public class CountriesController
 		return new ResponseEntity<Page<Countries>>(service.findAll(page - 1, size), HttpStatus.OK);
 	}
 	
+	@RequestMapping(value = "/country", method = RequestMethod.POST)
+	public ResponseEntity<Countries> save(@RequestBody CountriesDTO countryDTO)
+	{
+		logger.info("Creating entity");
+		return new ResponseEntity<Countries>(service.save(countryDTO), HttpStatus.CREATED);
+	}
+	
 	@RequestMapping(value = "/country/{id}", method = RequestMethod.GET)
 	public ResponseEntity<Countries> findOne(@PathVariable String id)
 	{		
 		return new ResponseEntity<Countries>(service.findOne(id), HttpStatus.OK);
 	}
-	
-	@RequestMapping(value = "/country", method = RequestMethod.POST)
-	public ResponseEntity<Countries> save(@RequestBody CountriesDTO countryDTO)
-	{
-		return new ResponseEntity<Countries>(service.save(countryDTO), HttpStatus.CREATED);
+
+	@RequestMapping(value = "/country/{id}", method = RequestMethod.PATCH)
+	public ResponseEntity<Countries> partialUpdateName(@RequestBody CountriesDTO countryDTO, @PathVariable("id") String id) 
+	{    
+		logger.info("Updating entity");
+		return new ResponseEntity<Countries>(service.update(countryDTO), HttpStatus.OK);
 	}
-
-
 }
