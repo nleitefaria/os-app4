@@ -5,6 +5,7 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -31,16 +32,22 @@ public class JobsController
 		return new ResponseEntity<Long>(service.count(), HttpStatus.OK);
 	}
 	
+	@RequestMapping(value = "/job/{id}", method = RequestMethod.GET)
+	public ResponseEntity<Jobs> findOne(@PathVariable String id)
+	{		
+		return new ResponseEntity<Jobs>(service.findOne(id), HttpStatus.OK);
+	}
+	
 	@RequestMapping(value = "/jobs", method = RequestMethod.GET)
 	public ResponseEntity<List<Jobs>> findAll()
 	{		
 		return new ResponseEntity<List<Jobs>>(service.findAll(), HttpStatus.OK);
 	}
 	
-	@RequestMapping(value = "/job/{id}", method = RequestMethod.GET)
-	public ResponseEntity<Jobs> findOne(@PathVariable String id)
+	@RequestMapping(value = "/jobs/{page}/{size}", method = RequestMethod.GET)
+	public ResponseEntity<Page<Jobs>> findAll(@PathVariable Integer page, @PathVariable Integer size)
 	{		
-		return new ResponseEntity<Jobs>(service.findOne(id), HttpStatus.OK);
+		return new ResponseEntity<Page<Jobs>>(service.findAll(page - 1, size), HttpStatus.OK);
 	}
 	
 	@RequestMapping(value = "/job", method = RequestMethod.POST)

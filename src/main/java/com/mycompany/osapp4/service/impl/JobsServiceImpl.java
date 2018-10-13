@@ -3,6 +3,8 @@ package com.mycompany.osapp4.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -22,6 +24,12 @@ public class JobsServiceImpl implements JobsService
 	{
 		return repository.count();
 	}
+	
+	@Transactional
+	public Jobs findOne(String id)
+	{
+		return repository.findOne(id);
+	}
 
 	@Transactional
 	public List<Jobs> findAll() 
@@ -30,9 +38,9 @@ public class JobsServiceImpl implements JobsService
 	}
 	
 	@Transactional
-	public Jobs findOne(String id)
+	public Page<Jobs> findAll(int page, int size) 
 	{
-		return repository.findOne(id);
+		return repository.findAll(new PageRequest(page, size));
 	}
 	
 	@Transactional

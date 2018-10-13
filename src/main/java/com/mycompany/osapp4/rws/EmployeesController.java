@@ -5,6 +5,7 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -37,6 +38,12 @@ public class EmployeesController
 	public ResponseEntity<List<Employees>> findAll()
 	{		
 		return new ResponseEntity<List<Employees>>(service.findAll(), HttpStatus.OK);
+	}
+	
+	@RequestMapping(value = "/employees/{page}/{size}", method = RequestMethod.GET)
+	public ResponseEntity<Page<Employees>> findAll(@PathVariable Integer page, @PathVariable Integer size)
+	{		
+		return new ResponseEntity<Page<Employees>>(service.findAll(page - 1, size), HttpStatus.OK);
 	}
 	
 	@RequestMapping(value = "/employee/{id}", method = RequestMethod.GET)
