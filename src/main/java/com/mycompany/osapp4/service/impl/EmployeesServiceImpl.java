@@ -6,33 +6,47 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.mycompany.osapp4.entity.Departments;
+import com.mycompany.osapp4.dto.EmployeesDTO;
 import com.mycompany.osapp4.entity.Employees;
+import com.mycompany.osapp4.entity.Jobs;
 import com.mycompany.osapp4.repository.EmployeesRepository;
+import com.mycompany.osapp4.repository.JobsRepository;
 import com.mycompany.osapp4.service.EmployeesService;
 
 @Service
 public class EmployeesServiceImpl implements EmployeesService
 {
 	@Autowired
-	private EmployeesRepository repository;
+	private EmployeesRepository repository1;
+	
+	@Autowired
+	private JobsRepository repository2;
 
 	@Transactional
 	public Long count() 
 	{
-		return repository.count();	
+		return repository1.count();	
 	}
 
 	@Transactional
 	public List<Employees> findAll() 
 	{
-		return repository.findAll();		
+		return repository1.findAll();		
 	}
 	
 	@Transactional
 	public Employees findOne(String id)
 	{
-		return repository.findOne(Integer.parseInt(id));
+		return repository1.findOne(Integer.parseInt(id));
 	}
+	
+	@Transactional
+	public Employees save(EmployeesDTO employeesDTO) 
+	{
+		Jobs jobs = repository2.findOne(employeesDTO.getJobId());
+		Employees employees = new Employees(employeesDTO.getEmployeeId(), jobs, employeesDTO.getLastName(), employeesDTO.getEmail(), employeesDTO.getHireDate(), employeesDTO.getSalary());		
+		return repository1.save(employees);
+	}
+
 
 }

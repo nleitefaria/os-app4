@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.mycompany.osapp4.dto.RegionsDTO;
 import com.mycompany.osapp4.entity.Regions;
 import com.mycompany.osapp4.repository.RegionsRepository;
 import com.mycompany.osapp4.service.RegionsService;
@@ -34,6 +35,12 @@ public class RegionsServiceImpl implements RegionsService
 		return repository.findOne(Integer.parseInt(id));
 	}
 
-
+	@Transactional
+	public Regions save(RegionsDTO regionsDTO)  
+	{		
+		Regions region = new Regions(regionsDTO.getRegionId());
+		region.setRegionName(regionsDTO.getRegionName());
+		return repository.save(region);
+	}
 
 }
