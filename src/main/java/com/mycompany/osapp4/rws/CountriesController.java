@@ -5,6 +5,7 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -35,6 +36,12 @@ public class CountriesController
 	public ResponseEntity<List<Countries>> findAll()
 	{		
 		return new ResponseEntity<List<Countries>>(service.findAll(), HttpStatus.OK);
+	}
+	
+	@RequestMapping(value = "/countries/{page}/{size}", method = RequestMethod.GET)
+	public ResponseEntity<Page<Countries>> findAll(@PathVariable Integer page, @PathVariable Integer size)
+	{		
+		return new ResponseEntity<Page<Countries>>(service.findAll(page - 1, size), HttpStatus.OK);
 	}
 	
 	@RequestMapping(value = "/country/{id}", method = RequestMethod.GET)
