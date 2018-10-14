@@ -24,25 +24,22 @@ public class EmployeesServiceImpl implements EmployeesService
 	@Autowired
 	private JobsRepository repository2;
 
-	@Transactional
+	
 	public Long count() 
 	{
 		return repository1.count();	
 	}
 
-	@Transactional
 	public List<Employees> findAll() 
 	{
 		return repository1.findAll();		
 	}
 	
-	@Transactional
 	public Employees findOne(String id)
 	{
 		return repository1.findOne(Integer.parseInt(id));
 	}
 	
-	@Transactional
 	public Page<Employees> findAll(int page, int size) 
 	{
 		return repository1.findAll(new PageRequest(page, size));

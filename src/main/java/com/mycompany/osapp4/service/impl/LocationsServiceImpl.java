@@ -24,25 +24,22 @@ public class LocationsServiceImpl implements LocationsService
 	@Autowired
 	private CountriesRepository repository2;
 	
-	@Transactional
 	public Long count()
 	{
 		return repository1.count();
 	}
 	
-	@Transactional
 	public Locations findOne(String id)
 	{
 		return repository1.findOne(Integer.parseInt(id));
 	}
 	
-	@Transactional
+	
 	public List<Locations> findAll()
 	{
 		return repository1.findAll();
 	}
-	
-	@Transactional
+
 	public Page<Locations> findAll(int page, int size) 
 	{
 		return repository1.findAll(new PageRequest(page, size));
