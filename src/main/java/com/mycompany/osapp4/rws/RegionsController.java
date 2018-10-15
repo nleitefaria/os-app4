@@ -14,10 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.mycompany.osapp4.dto.CountriesDTO;
 import com.mycompany.osapp4.dto.RegionsDTO;
-import com.mycompany.osapp4.entity.Countries;
-import com.mycompany.osapp4.entity.Locations;
 import com.mycompany.osapp4.entity.Regions;
 import com.mycompany.osapp4.service.RegionsService;
 
@@ -58,7 +55,6 @@ public class RegionsController
 	{
 		return new ResponseEntity<Regions>(service.save(regionsDTO), HttpStatus.CREATED);
 	}
-	
 	
 	@RequestMapping(value = "/region/{id}", method = RequestMethod.PATCH)
 	public ResponseEntity<Regions> partialUpdateName(@RequestBody RegionsDTO regionsDTO, @PathVariable("id") String id) 

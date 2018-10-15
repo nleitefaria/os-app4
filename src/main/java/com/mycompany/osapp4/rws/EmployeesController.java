@@ -58,7 +58,7 @@ public class EmployeesController
 	}
 	
 	@RequestMapping(value = "/employee/{id}", method = RequestMethod.PATCH)
-	public ResponseEntity<Employees> partialUpdateName(@RequestBody EmployeesDTO employeesDTO, @PathVariable("id") String id) 
+	public ResponseEntity<Employees> partialUpdate(@RequestBody EmployeesDTO employeesDTO, @PathVariable("id") String id) 
 	{    
 		logger.info("Updating entity");
 		return new ResponseEntity<Employees>(service.update(employeesDTO), HttpStatus.OK);

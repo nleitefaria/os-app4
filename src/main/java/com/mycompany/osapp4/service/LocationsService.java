@@ -13,6 +13,6 @@ public interface LocationsService
 	Locations findOne(String id);
 	List<Locations> findAll();
 	Page<Locations> findAll(int page, int size);
+	Locations update(LocationsDTO locationsDTO);
 	Locations save(LocationsDTO locationsDTO);
-
 }

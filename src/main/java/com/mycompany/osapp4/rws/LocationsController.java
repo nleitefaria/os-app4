@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.mycompany.osapp4.dto.LocationsDTO;
-import com.mycompany.osapp4.entity.Jobs;
 import com.mycompany.osapp4.entity.Locations;
 import com.mycompany.osapp4.service.LocationsService;
 
@@ -56,4 +55,12 @@ public class LocationsController
 	{
 		return new ResponseEntity<Locations>(service.save(locationsDTO), HttpStatus.CREATED);
 	}
+	
+	@RequestMapping(value = "/location/{id}", method = RequestMethod.PATCH)
+	public ResponseEntity<Locations> partialUpdate(@RequestBody LocationsDTO locationsDTO, @PathVariable("id") String id) 
+	{    
+		logger.info("Updating entity");
+		return new ResponseEntity<Locations>(service.update(locationsDTO), HttpStatus.OK);
+	}
+	
 }

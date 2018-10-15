@@ -14,9 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.mycompany.osapp4.dto.CountriesDTO;
 import com.mycompany.osapp4.dto.DepartmentsDTO;
-import com.mycompany.osapp4.entity.Countries;
 import com.mycompany.osapp4.entity.Departments;
 import com.mycompany.osapp4.service.DepartmentsService;
 
@@ -60,7 +58,7 @@ public class DepartmentsController
 	}
 	
 	@RequestMapping(value = "/department/{id}", method = RequestMethod.PATCH)
-	public ResponseEntity<Departments> partialUpdateName(@RequestBody DepartmentsDTO departmentsDTO, @PathVariable("id") String id) 
+	public ResponseEntity<Departments> partialUpdate(@RequestBody DepartmentsDTO departmentsDTO, @PathVariable("id") String id) 
 	{    
 		logger.info("Updating entity");
 		return new ResponseEntity<Departments>(service.update(departmentsDTO), HttpStatus.OK);

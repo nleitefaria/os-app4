@@ -58,7 +58,7 @@ public class CountriesController
 	}
 
 	@RequestMapping(value = "/country/{id}", method = RequestMethod.PATCH)
-	public ResponseEntity<Countries> partialUpdateName(@RequestBody CountriesDTO countryDTO, @PathVariable("id") String id) 
+	public ResponseEntity<Countries> partialUpdate(@RequestBody CountriesDTO countryDTO, @PathVariable("id") String id) 
 	{    
 		logger.info("Updating entity");
 		return new ResponseEntity<Countries>(service.update(countryDTO), HttpStatus.OK);

@@ -49,9 +49,23 @@ public class LocationsServiceImpl implements LocationsService
 	public Locations save(LocationsDTO locationsDTO)  
 	{		
 		Countries country = repository2.findOne(locationsDTO.getCountryId());		
-		Locations location = new Locations(country, locationsDTO.getCity());		
+		Locations location = new Locations(country, locationsDTO.getCity());
+		location.setStreetAddress(locationsDTO.getStreetAddress());
+		location.setCity(locationsDTO.getCity());
+		location.setPostalCode(locationsDTO.getPostalCode());
+		location.setStateProvince(locationsDTO.getStateProvince());
 		return repository1.save(location);
 	}
-
-
+	
+	@Transactional
+	public Locations update(LocationsDTO locationsDTO) 
+	{
+		Countries country = repository2.findOne(locationsDTO.getCountryId());				
+		Locations location = new Locations(country, locationsDTO.getCity());	
+		location.setStreetAddress(locationsDTO.getStreetAddress());
+		location.setCity(locationsDTO.getCity());
+		location.setPostalCode(locationsDTO.getPostalCode());
+		location.setStateProvince(locationsDTO.getStateProvince());
+		return repository1.save(location);	
+	}
 }

@@ -8,9 +8,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.mycompany.osapp4.dto.EmployeesDTO;
 import com.mycompany.osapp4.dto.JobsDTO;
-import com.mycompany.osapp4.entity.Employees;
 import com.mycompany.osapp4.entity.Jobs;
 import com.mycompany.osapp4.repository.JobsRepository;
 import com.mycompany.osapp4.service.JobsService;
@@ -57,9 +55,4 @@ public class JobsServiceImpl implements JobsService
 		jobs.setMaxSalary(jobsDTO.getMaxSalary());		
 		return repository.save(jobs);	
 	}
-
-	
-	
-	
-
 }

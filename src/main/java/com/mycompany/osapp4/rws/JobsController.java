@@ -56,5 +56,10 @@ public class JobsController
 		return new ResponseEntity<Jobs>(service.save(jobsDTO), HttpStatus.CREATED);
 	}
 	
-	
+	@RequestMapping(value = "/job/{id}", method = RequestMethod.PATCH)
+	public ResponseEntity<Jobs> partialUpdate(@RequestBody JobsDTO jobsDTO, @PathVariable("id") String id) 
+	{    
+		logger.info("Updating entity");
+		return new ResponseEntity<Jobs>(service.update(jobsDTO), HttpStatus.OK);
+	}	
 }
