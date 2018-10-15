@@ -63,4 +63,19 @@ public class CountriesController
 		logger.info("Updating entity");
 		return new ResponseEntity<Countries>(service.update(countryDTO), HttpStatus.OK);
 	}
+	
+	@RequestMapping(value = "/country/{id}", method = RequestMethod.DELETE)
+	public ResponseEntity<String> delete(@PathVariable String id)
+	{				
+		logger.info("Deleting entity");
+		String res = service.delete(id);		
+		if(res!=null && res.equals("OK"))
+		{
+			return new ResponseEntity<String>(res, HttpStatus.NO_CONTENT);
+		}
+		else
+		{
+			return new ResponseEntity<String>(res, HttpStatus.NOT_FOUND);
+		}	
+	}
 }

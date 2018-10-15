@@ -15,4 +15,5 @@ public interface CountriesService
 	Countries findOne(String id);
 	Countries save(CountriesDTO countryDTO);
 	Countries update(CountriesDTO countryDTO);
+	String delete(String id);
 }

@@ -66,4 +66,18 @@ public class CountriesServiceImpl implements CountriesService
 		return repository1.save(country);
 	}
 	
+	@Transactional
+	public String delete(String id) 
+	{
+		Countries country = repository1.getOne(id);
+		try
+		{
+			repository1.delete(country);
+			return "OK";
+		}
+		catch (Exception e)
+		{
+			return "KO";
+		}		
+	}
 }
