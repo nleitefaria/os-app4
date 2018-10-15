@@ -13,5 +13,6 @@ public interface JobsService
 	Jobs findOne(String id);
 	List<Jobs> findAll();
 	Page<Jobs> findAll(int page, int size);
+	Jobs update(JobsDTO regionsDTO);
 	Jobs save(JobsDTO jobsDTO);
 }
