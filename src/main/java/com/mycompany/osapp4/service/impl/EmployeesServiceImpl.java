@@ -52,6 +52,15 @@ public class EmployeesServiceImpl implements EmployeesService
 		Employees employees = new Employees(employeesDTO.getEmployeeId(), jobs, employeesDTO.getLastName(), employeesDTO.getEmail(), employeesDTO.getHireDate(), employeesDTO.getSalary());		
 		return repository1.save(employees);
 	}
-
-
+	
+	@Transactional
+	public Employees update(EmployeesDTO employeesDTO) 
+	{
+		Employees employees = repository1.getOne(employeesDTO.getEmployeeId());
+		employees.setFirstName(employeesDTO.getFirstName());
+		employees.setLastName(employeesDTO.getLastName());
+		employees.setEmail(employeesDTO.getEmail());
+		employees.setHireDate(employeesDTO.getHireDate());
+		return repository1.save(employees);	
+	}
 }

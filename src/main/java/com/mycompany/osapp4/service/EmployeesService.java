@@ -14,4 +14,5 @@ public interface EmployeesService
 	List<Employees> findAll();
 	Page<Employees> findAll(int page, int size);
 	Employees save(EmployeesDTO employeesDTO);
+	Employees update(EmployeesDTO employeesDTO);
 }

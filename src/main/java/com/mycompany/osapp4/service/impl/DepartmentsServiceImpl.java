@@ -8,9 +8,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.mycompany.osapp4.dto.CountriesDTO;
 import com.mycompany.osapp4.dto.DepartmentsDTO;
-import com.mycompany.osapp4.entity.Countries;
 import com.mycompany.osapp4.entity.Departments;
 import com.mycompany.osapp4.repository.DepartmentsRepository;
 import com.mycompany.osapp4.service.DepartmentsService;

@@ -14,9 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.mycompany.osapp4.dto.DepartmentsDTO;
 import com.mycompany.osapp4.dto.EmployeesDTO;
-import com.mycompany.osapp4.entity.Departments;
 import com.mycompany.osapp4.entity.Employees;
 import com.mycompany.osapp4.service.EmployeesService;
 
@@ -56,6 +54,13 @@ public class EmployeesController
 	public ResponseEntity<Employees> save(@RequestBody EmployeesDTO employeeDTO)
 	{
 		return new ResponseEntity<Employees>(service.save(employeeDTO), HttpStatus.CREATED);
+	}
+	
+	@RequestMapping(value = "/employee/{id}", method = RequestMethod.PATCH)
+	public ResponseEntity<Employees> partialUpdateName(@RequestBody EmployeesDTO employeesDTO, @PathVariable("id") String id) 
+	{    
+		logger.info("Updating entity");
+		return new ResponseEntity<Employees>(service.update(employeesDTO), HttpStatus.OK);
 	}
 	
 
