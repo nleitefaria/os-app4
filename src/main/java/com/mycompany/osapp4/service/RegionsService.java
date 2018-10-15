@@ -14,4 +14,5 @@ public interface RegionsService
 	List<Regions> findAll();
 	Page<Regions> findAll(int page, int size);
 	Regions save(RegionsDTO regionsDTO);
+	Regions update(RegionsDTO regionsDTO);
 }

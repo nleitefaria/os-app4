@@ -14,4 +14,5 @@ public interface DepartmentsService
 	Page<Departments> findAll(int page, int size);
 	Departments findOne(String id);
 	Departments save(DepartmentsDTO departmentsDTO);
+	Departments update(DepartmentsDTO departmentsDTO);
 }

@@ -19,13 +19,11 @@ public class RegionsServiceImpl implements RegionsService
 	@Autowired
 	private RegionsRepository repository;
 	
-	
 	public Long count()
 	{
 		return repository.count();
 	}
-	
-	
+		
 	public Regions findOne(String id)
 	{
 		return repository.findOne(Integer.parseInt(id));
@@ -49,5 +47,12 @@ public class RegionsServiceImpl implements RegionsService
 		region.setRegionName(regionsDTO.getRegionName());
 		return repository.save(region);
 	}
-
+	
+	@Transactional
+	public Regions update(RegionsDTO regionsDTO) 
+	{
+		Regions regions = repository.getOne(regionsDTO.getRegionId());
+		regions.setRegionName(regionsDTO.getRegionName());
+		return repository.save(regions);
+	}
 }
