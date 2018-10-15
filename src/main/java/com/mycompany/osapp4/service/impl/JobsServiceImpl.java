@@ -55,4 +55,19 @@ public class JobsServiceImpl implements JobsService
 		jobs.setMaxSalary(jobsDTO.getMaxSalary());		
 		return repository.save(jobs);	
 	}
+	
+	@Transactional
+	public String delete(String id) 
+	{
+		Jobs jobs = repository.getOne(id);
+		try
+		{
+			repository.delete(jobs);
+			return "OK";
+		}
+		catch (Exception e)
+		{
+			return "KO";
+		}		
+	}
 }

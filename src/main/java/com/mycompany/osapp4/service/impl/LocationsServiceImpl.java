@@ -34,7 +34,6 @@ public class LocationsServiceImpl implements LocationsService
 		return repository1.findOne(Integer.parseInt(id));
 	}
 	
-	
 	public List<Locations> findAll()
 	{
 		return repository1.findAll();
@@ -68,4 +67,21 @@ public class LocationsServiceImpl implements LocationsService
 		location.setStateProvince(locationsDTO.getStateProvince());
 		return repository1.save(location);	
 	}
+	
+	@Transactional
+	public String delete(Integer id) 
+	{
+		Locations locations = repository1.getOne(id);
+		try
+		{
+			repository1.delete(locations);
+			return "OK";
+		}
+		catch (Exception e)
+		{
+			return "KO";
+		}	
+	}
+	
+	
 }

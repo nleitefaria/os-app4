@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.mycompany.osapp4.dto.EmployeesDTO;
+import com.mycompany.osapp4.entity.Departments;
 import com.mycompany.osapp4.entity.Employees;
 import com.mycompany.osapp4.entity.Jobs;
 import com.mycompany.osapp4.repository.EmployeesRepository;
@@ -62,5 +63,20 @@ public class EmployeesServiceImpl implements EmployeesService
 		employees.setEmail(employeesDTO.getEmail());
 		employees.setHireDate(employeesDTO.getHireDate());
 		return repository1.save(employees);	
+	}
+	
+	@Transactional
+	public String delete(Integer id) 
+	{
+		Employees employees = repository1.getOne(id);
+		try
+		{
+			repository1.delete(employees);
+			return "OK";
+		}
+		catch (Exception e)
+		{
+			return "KO";
+		}		
 	}
 }

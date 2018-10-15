@@ -15,4 +15,5 @@ public interface JobsService
 	Page<Jobs> findAll(int page, int size);
 	Jobs update(JobsDTO regionsDTO);
 	Jobs save(JobsDTO jobsDTO);
+	String delete(String id);
 }

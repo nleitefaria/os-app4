@@ -15,4 +15,5 @@ public interface DepartmentsService
 	Departments findOne(String id);
 	Departments save(DepartmentsDTO departmentsDTO);
 	Departments update(DepartmentsDTO departmentsDTO);
+	String delete(Integer id);
 }

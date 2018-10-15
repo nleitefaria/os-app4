@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.mycompany.osapp4.dto.DepartmentsDTO;
+import com.mycompany.osapp4.entity.Countries;
 import com.mycompany.osapp4.entity.Departments;
 import com.mycompany.osapp4.repository.DepartmentsRepository;
 import com.mycompany.osapp4.service.DepartmentsService;
@@ -53,6 +54,21 @@ public class DepartmentsServiceImpl implements DepartmentsService
 		Departments departments = repository.getOne(departmentsDTO.getDepartmentId());
 		departments.setDepartmentName(departmentsDTO.getDepartmentName());
 		return repository.save(departments);
+	}
+	
+	@Transactional
+	public String delete(Integer id) 
+	{
+		Departments department = repository.getOne(id);
+		try
+		{
+			repository.delete(department);
+			return "OK";
+		}
+		catch (Exception e)
+		{
+			return "KO";
+		}		
 	}
 
 }
