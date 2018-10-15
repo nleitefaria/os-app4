@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.mycompany.osapp4.dto.EmployeesDTO;
-import com.mycompany.osapp4.entity.Departments;
 import com.mycompany.osapp4.entity.Employees;
 import com.mycompany.osapp4.entity.Jobs;
 import com.mycompany.osapp4.repository.EmployeesRepository;
