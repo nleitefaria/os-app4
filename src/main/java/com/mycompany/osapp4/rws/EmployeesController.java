@@ -53,6 +53,7 @@ public class EmployeesController
 	@RequestMapping(value = "/employee", method = RequestMethod.POST)
 	public ResponseEntity<Employees> save(@RequestBody EmployeesDTO employeeDTO)
 	{
+		logger.info("Creating entity");
 		return new ResponseEntity<Employees>(service.save(employeeDTO), HttpStatus.CREATED);
 	}
 	
