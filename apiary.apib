@@ -38,10 +38,22 @@ osapp4 is a RESTful API that exposes the sample HR MySQL database.
 
         {"countryId":"AR","countryName":"Argentina"}
         
-        
-        
+### Update a Country [PUT]
 
++ Request (application/json)
 
+        {"countryId":"AR","countryName":"Argentina"}
+
++ Response 201 (application/json)
+
+    + Body
+
+            {"countryId":"AR","countryName":"Argentina"}
+        
+### Delete a Country [DELETE]
+
++ Response 204      
+        
 ## Departments Collection [/departments]
 ### List All Departments [GET]
 + Response 200 (application/json)
@@ -49,7 +61,46 @@ osapp4 is a RESTful API that exposes the sample HR MySQL database.
         [
         ]
         
+## Department [/department]       
+### Create a new Department [POST]
+
++ Request (application/json)
+
+        {}
+
++ Response 201 (application/json)
+
+    + Body
+
+            {}   
+            
+## Department [/department/{id}]
+
++ Parameters
+    + id (string) - ID 
+
+### View a Department Detail [GET]
+
++ Response 200 (application/json)
+
+        {}
         
+### Update a Department [PUT]
+
++ Request (application/json)
+
+        {}
+
++ Response 201 (application/json)
+
+    + Body
+
+            {}
+        
+### Delete a Department [DELETE]
+
++ Response 204      
+
 ## Employees Collection [/employees]
 ### List All Employees [GET]
 + Response 200 (application/json)
@@ -57,22 +108,141 @@ osapp4 is a RESTful API that exposes the sample HR MySQL database.
         [
         ]
         
+## Employee [/employee]       
+### Create a new Employee [POST]
+
++ Request (application/json)
+
+        {}
+
++ Response 201 (application/json)
+
+    + Body
+
+            {}         
         
+## Employee [/employee/{id}]
+
++ Parameters
+    + id (string) - ID 
+
+### View a Employee Detail [GET]
+
++ Response 200 (application/json)
+
+        {}
+        
+### Update a Employee [PUT]
+
++ Request (application/json)
+
+        {}
+
++ Response 201 (application/json)
+
+    + Body
+
+            {}
+        
+### Delete a Employee [DELETE]
+
++ Response 204  
+
 ## Jobs Collection [/jobs]
 ### List All Jobs [GET]
 + Response 200 (application/json)
 
         [
         ]
+        
+## Job [/job]              
+### Create a new Job [POST]
 
++ Request (application/json)
 
+        {}
+
++ Response 201 (application/json)
+
+    + Body
+
+            {}     
+        
+
+## Jobs [/job/{id}]
+
++ Parameters
+    + id (string) - ID 
+
+### View a Job Detail [GET]
+
++ Response 200 (application/json)
+
+        {}
+        
+### Update a Job [PUT]
+
++ Request (application/json)
+
+        {}
+
++ Response 201 (application/json)
+
+    + Body
+
+            {}
+        
+### Delete a Job [DELETE]
+
++ Response 204  
+        
 ## Locations Collection [/locations]
 ### List All Locations [GET]
 + Response 200 (application/json)
 
         [
         ]
+
+## Location [/location]              
+### Create a new Location [POST]
+
++ Request (application/json)
+
+        {}
+
++ Response 201 (application/json)
+
+    + Body
+
+            {}     
+
+## Location [/location/{id}]
+
++ Parameters
+    + id (string) - ID 
+
+### View a Location Detail [GET]
+
++ Response 200 (application/json)
+
+        {}
         
+### Update a Location [PUT]
+
++ Request (application/json)
+
+        {}
+
++ Response 201 (application/json)
+
+    + Body
+
+            {}
+        
+### Delete a Location [DELETE]
+
++ Response 204   
+  
 
 ## Regions Collection [/regions]
 ### List All Regions [GET]
@@ -80,3 +250,44 @@ osapp4 is a RESTful API that exposes the sample HR MySQL database.
 
         [
         ]
+        
+## Region [/region]              
+### Create a new Region [POST]
+
++ Request (application/json)
+
+        {}
+
++ Response 201 (application/json)
+
+    + Body
+
+            {} 
+            
+            
+## Region [/region/{id}]
+
++ Parameters
+    + id (string) - ID 
+
+### View a Region Detail [GET]
+
++ Response 200 (application/json)
+
+        {}
+        
+### Update a Region [PUT]
+
++ Request (application/json)
+
+        {}
+
++ Response 201 (application/json)
+
+    + Body
+
+            {}
+        
+### Delete a Region [DELETE]
+
++ Response 204   
