@@ -58,15 +58,14 @@ osapp4 is a RESTful API that exposes the sample HR MySQL database.
 ### List All Departments [GET]
 + Response 200 (application/json)
 
-        [
-        ]
+        [{"departmentId":10,"departmentName":"Administration"},{"departmentId":20,"departmentName":"Marketing"},{"departmentId":30,"departmentName":"Purchasing"},{"departmentId":40,"departmentName":"Human Resources"},{"departmentId":50,"departmentName":"Shipping"},{"departmentId":60,"departmentName":"IT"},{"departmentId":70,"departmentName":"Public Relations"},{"departmentId":80,"departmentName":"Sales"},{"departmentId":90,"departmentName":"Executive"},{"departmentId":100,"departmentName":"Finance"},{"departmentId":110,"departmentName":"Accounting"},{"departmentId":120,"departmentName":"Treasury"},{"departmentId":130,"departmentName":"Corporate Tax"},{"departmentId":140,"departmentName":"Control And Credit"},{"departmentId":150,"departmentName":"Shareholder Services"},{"departmentId":160,"departmentName":"Benefits"},{"departmentId":170,"departmentName":"Manufacturing"},{"departmentId":180,"departmentName":"Construction"},{"departmentId":190,"departmentName":"Contracting"},{"departmentId":200,"departmentName":"Operations"},{"departmentId":210,"departmentName":"IT Support"},{"departmentId":220,"departmentName":"NOC"},{"departmentId":230,"departmentName":"IT Helpdesk"},{"departmentId":240,"departmentName":"Government Sales"},{"departmentId":250,"departmentName":"Retail Sales"},{"departmentId":260,"departmentName":"Recruiting"},{"departmentId":270,"departmentName":"Payroll"},{"departmentId":280,"departmentName":"Testing"}]
         
 ## Department [/department]       
 ### Create a new Department [POST]
 
 + Request (application/json)
 
-        {}
+        {"departmentId":10,"departmentName":"Administration"}
 
 + Response 201 (application/json)
 
@@ -83,13 +82,13 @@ osapp4 is a RESTful API that exposes the sample HR MySQL database.
 
 + Response 200 (application/json)
 
-        {}
+        {"departmentId":10,"departmentName":"Administration"}
         
 ### Update a Department [PUT]
 
 + Request (application/json)
 
-        {}
+        {"departmentId":10,"departmentName":"Administration"}
 
 + Response 201 (application/json)
 
@@ -106,6 +105,7 @@ osapp4 is a RESTful API that exposes the sample HR MySQL database.
 + Response 200 (application/json)
 
         [
+        {"employeeId":100,"firstName":"Steven","lastName":"King","email":"SKING","phoneNumber":"515.123.4567","hireDate":"1987-06-17","salary":24000.00,"commissionPct":null}
         ]
         
 ## Employee [/employee]       
@@ -113,13 +113,13 @@ osapp4 is a RESTful API that exposes the sample HR MySQL database.
 
 + Request (application/json)
 
-        {}
+        {"employeeId":100,"firstName":"Steven","lastName":"King","email":"SKING","phoneNumber":"515.123.4567","hireDate":"1987-06-17","salary":24000.00,"commissionPct":null}
 
 + Response 201 (application/json)
 
     + Body
 
-            {}         
+            {"employeeId":100,"firstName":"Steven","lastName":"King","email":"SKING","phoneNumber":"515.123.4567","hireDate":"1987-06-17","salary":24000.00,"commissionPct":null}
         
 ## Employee [/employee/{id}]
 
@@ -130,19 +130,19 @@ osapp4 is a RESTful API that exposes the sample HR MySQL database.
 
 + Response 200 (application/json)
 
-        {}
+        {"employeeId":100,"firstName":"Steven","lastName":"King","email":"SKING","phoneNumber":"515.123.4567","hireDate":"1987-06-17","salary":24000.00,"commissionPct":null}
         
 ### Update a Employee [PUT]
 
 + Request (application/json)
 
-        {}
+        {"employeeId":100,"firstName":"Steven","lastName":"King","email":"SKING","phoneNumber":"515.123.4567","hireDate":"1987-06-17","salary":24000.00,"commissionPct":null}
 
 + Response 201 (application/json)
 
     + Body
 
-            {}
+            {"employeeId":100,"firstName":"Steven","lastName":"King","email":"SKING","phoneNumber":"515.123.4567","hireDate":"1987-06-17","salary":24000.00,"commissionPct":null}
         
 ### Delete a Employee [DELETE]
 
@@ -152,21 +152,20 @@ osapp4 is a RESTful API that exposes the sample HR MySQL database.
 ### List All Jobs [GET]
 + Response 200 (application/json)
 
-        [
-        ]
+        [{"jobId":"AC_ACCOUNT","jobTitle":"Public Accountant","minSalary":4200,"maxSalary":9000},{"jobId":"AC_MGR","jobTitle":"Accounting Manager","minSalary":8200,"maxSalary":16000},{"jobId":"AD_ASST","jobTitle":"Administration Assistant","minSalary":3000,"maxSalary":6000},{"jobId":"AD_PRES","jobTitle":"President","minSalary":20000,"maxSalary":40000},{"jobId":"AD_VP","jobTitle":"Administration Vice President","minSalary":15000,"maxSalary":30000},{"jobId":"FI_ACCOUNT","jobTitle":"Accountant","minSalary":4200,"maxSalary":9000},{"jobId":"FI_MGR","jobTitle":"Finance Manager","minSalary":8200,"maxSalary":16000},{"jobId":"HR_REP","jobTitle":"Human Resources Representative","minSalary":4000,"maxSalary":9000},{"jobId":"IT_PROG","jobTitle":"Programmer","minSalary":4000,"maxSalary":10000},{"jobId":"MK_MAN","jobTitle":"Marketing Manager","minSalary":9000,"maxSalary":15000},{"jobId":"MK_REP","jobTitle":"Marketing Representative","minSalary":4000,"maxSalary":9000},{"jobId":"PR_REP","jobTitle":"Public Relations Representative","minSalary":4500,"maxSalary":10500},{"jobId":"PU_CLERK","jobTitle":"Purchasing Clerk","minSalary":2500,"maxSalary":5500},{"jobId":"PU_MAN","jobTitle":"Purchasing Manager","minSalary":8000,"maxSalary":15000},{"jobId":"SA_MAN","jobTitle":"Sales Manager","minSalary":10000,"maxSalary":20000},{"jobId":"SA_REP","jobTitle":"Sales Representative","minSalary":6000,"maxSalary":12000},{"jobId":"SH_CLERK","jobTitle":"Shipping Clerk","minSalary":2500,"maxSalary":5500},{"jobId":"ST_CLERK","jobTitle":"Stock Clerk","minSalary":2000,"maxSalary":5000},{"jobId":"ST_MAN","jobTitle":"Stock Manager","minSalary":5500,"maxSalary":8500}]
         
 ## Job [/job]              
 ### Create a new Job [POST]
 
 + Request (application/json)
 
-        {}
+        {"jobId":"AC_ACCOUNT","jobTitle":"Public Accountant","minSalary":4200,"maxSalary":9000}
 
 + Response 201 (application/json)
 
     + Body
 
-            {}     
+            {"jobId":"AC_ACCOUNT","jobTitle":"Public Accountant","minSalary":4200,"maxSalary":9000}     
         
 
 ## Jobs [/job/{id}]
@@ -178,13 +177,13 @@ osapp4 is a RESTful API that exposes the sample HR MySQL database.
 
 + Response 200 (application/json)
 
-        {}
+        {"jobId":"AC_ACCOUNT","jobTitle":"Public Accountant","minSalary":4200,"maxSalary":9000}
         
 ### Update a Job [PUT]
 
 + Request (application/json)
 
-        {}
+        {"jobId":"AC_ACCOUNT","jobTitle":"Public Accountant","minSalary":4200,"maxSalary":9000}
 
 + Response 201 (application/json)
 
@@ -200,21 +199,20 @@ osapp4 is a RESTful API that exposes the sample HR MySQL database.
 ### List All Locations [GET]
 + Response 200 (application/json)
 
-        [
-        ]
+        [{"locationId":1000,"countries":{"countryId":"IT","countryName":"Italy","handler":{},"hibernateLazyInitializer":{}},"streetAddress":"1297 Via Cola di Rie","postalCode":"00989","city":"Roma","stateProvince":null},{"locationId":1100,"countries":{"countryId":"IT","countryName":"Italy","handler":{},"hibernateLazyInitializer":{}},"streetAddress":"93091 Calle della Testa","postalCode":"10934","city":"Venice","stateProvince":null},{"locationId":1200,"countries":{"countryId":"JP","countryName":"Japan","handler":{},"hibernateLazyInitializer":{}},"streetAddress":"2017 Shinjuku-ku","postalCode":"1689","city":"Tokyo","stateProvince":"Tokyo Prefecture"},{"locationId":1300,"countries":{"countryId":"JP","countryName":"Japan","handler":{},"hibernateLazyInitializer":{}},"streetAddress":"9450 Kamiya-cho","postalCode":"6823","city":"Hiroshima","stateProvince":null},{"locationId":1400,"countries":{"countryId":"US","countryName":"United States of America","handler":{},"hibernateLazyInitializer":{}},"streetAddress":"2014 Jabberwocky Rd","postalCode":"26192","city":"Southlake","stateProvince":"Texas"},{"locationId":1500,"countries":{"countryId":"US","countryName":"United States of America","handler":{},"hibernateLazyInitializer":{}},"streetAddress":"2011 Interiors Blvd","postalCode":"99236","city":"South San Francisco","stateProvince":"California"},{"locationId":1600,"countries":{"countryId":"US","countryName":"United States of America","handler":{},"hibernateLazyInitializer":{}},"streetAddress":"2007 Zagora St","postalCode":"50090","city":"South Brunswick","stateProvince":"New Jersey"},{"locationId":1700,"countries":{"countryId":"US","countryName":"United States of America","handler":{},"hibernateLazyInitializer":{}},"streetAddress":"2004 Charade Rd","postalCode":"98199","city":"Seattle","stateProvince":"Washington"},{"locationId":1800,"countries":{"countryId":"CA","countryName":"Canada","handler":{},"hibernateLazyInitializer":{}},"streetAddress":"147 Spadina Ave","postalCode":"M5V 2L7","city":"Toronto","stateProvince":"Ontario"},{"locationId":1900,"countries":{"countryId":"CA","countryName":"Canada","handler":{},"hibernateLazyInitializer":{}},"streetAddress":"6092 Boxwood St","postalCode":"YSW 9T2","city":"Whitehorse","stateProvince":"Yukon"},{"locationId":2000,"countries":{"countryId":"CN","countryName":"China","handler":{},"hibernateLazyInitializer":{}},"streetAddress":"40-5-12 Laogianggen","postalCode":"190518","city":"Beijing","stateProvince":null},{"locationId":2100,"countries":{"countryId":"IN","countryName":"India","handler":{},"hibernateLazyInitializer":{}},"streetAddress":"1298 Vileparle (E)","postalCode":"490231","city":"Bombay","stateProvince":"Maharashtra"},{"locationId":2200,"countries":{"countryId":"AU","countryName":"Australia","handler":{},"hibernateLazyInitializer":{}},"streetAddress":"12-98 Victoria Street","postalCode":"2901","city":"Sydney","stateProvince":"New South Wales"},{"locationId":2300,"countries":{"countryId":"SG","countryName":"Singapore","handler":{},"hibernateLazyInitializer":{}},"streetAddress":"198 Clementi North","postalCode":"540198","city":"Singapore","stateProvince":null},{"locationId":2400,"countries":{"countryId":"UK","countryName":"United Kingdom","handler":{},"hibernateLazyInitializer":{}},"streetAddress":"8204 Arthur St","postalCode":null,"city":"London","stateProvince":null},{"locationId":2500,"countries":{"countryId":"UK","countryName":"United Kingdom","handler":{},"hibernateLazyInitializer":{}},"streetAddress":"Magdalen Centre, The Oxford Science Park","postalCode":"OX9 9ZB","city":"Oxford","stateProvince":"Oxford"},{"locationId":2600,"countries":{"countryId":"UK","countryName":"United Kingdom","handler":{},"hibernateLazyInitializer":{}},"streetAddress":"9702 Chester Road","postalCode":"09629850293","city":"Stretford","stateProvince":"Manchester"},{"locationId":2700,"countries":{"countryId":"DE","countryName":"Germany","handler":{},"hibernateLazyInitializer":{}},"streetAddress":"Schwanthalerstr. 7031","postalCode":"80925","city":"Munich","stateProvince":"Bavaria"},{"locationId":2800,"countries":{"countryId":"BR","countryName":"Brazil","handler":{},"hibernateLazyInitializer":{}},"streetAddress":"Rua Frei Caneca 1360 ","postalCode":"01307-002","city":"Sao Paulo","stateProvince":"Sao Paulo"},{"locationId":2900,"countries":{"countryId":"CH","countryName":"Switzerland","handler":{},"hibernateLazyInitializer":{}},"streetAddress":"20 Rue des Corps-Saints","postalCode":"1730","city":"Geneva","stateProvince":"Geneve"},{"locationId":3000,"countries":{"countryId":"CH","countryName":"Switzerland","handler":{},"hibernateLazyInitializer":{}},"streetAddress":"Murtenstrasse 921","postalCode":"3095","city":"Bern","stateProvince":"BE"},{"locationId":3100,"countries":{"countryId":"NL","countryName":"Netherlands","handler":{},"hibernateLazyInitializer":{}},"streetAddress":"Pieter Breughelstraat 837","postalCode":"3029SK","city":"Utrecht","stateProvince":"Utrecht"},{"locationId":3200,"countries":{"countryId":"MX","countryName":"Mexico","handler":{},"hibernateLazyInitializer":{}},"streetAddress":"Mariano Escobedo 9991","postalCode":"11932","city":"Mexico City","stateProvince":"Distrito Federal,"}]
 
 ## Location [/location]              
 ### Create a new Location [POST]
 
 + Request (application/json)
 
-        {}
+        {"locationId":1000,"countries":{"countryId":"IT","countryName":"Italy","handler":{},"hibernateLazyInitializer":{}},"streetAddress":"1297 Via Cola di Rie","postalCode":"00989","city":"Roma","stateProvince":null}
 
 + Response 201 (application/json)
 
     + Body
 
-            {}     
+            {"locationId":1000,"countries":{"countryId":"IT","countryName":"Italy","handler":{},"hibernateLazyInitializer":{}},"streetAddress":"1297 Via Cola di Rie","postalCode":"00989","city":"Roma","stateProvince":null}   
 
 ## Location [/location/{id}]
 
@@ -225,19 +223,19 @@ osapp4 is a RESTful API that exposes the sample HR MySQL database.
 
 + Response 200 (application/json)
 
-        {}
+        {"locationId":1000,"countries":{"countryId":"IT","countryName":"Italy","handler":{},"hibernateLazyInitializer":{}},"streetAddress":"1297 Via Cola di Rie","postalCode":"00989","city":"Roma","stateProvince":null}
         
 ### Update a Location [PUT]
 
 + Request (application/json)
 
-        {}
+        {"locationId":1000,"countries":{"countryId":"IT","countryName":"Italy","handler":{},"hibernateLazyInitializer":{}},"streetAddress":"1297 Via Cola di Rie","postalCode":"00989","city":"Roma","stateProvince":null}
 
 + Response 201 (application/json)
 
     + Body
 
-            {}
+            {"locationId":1000,"countries":{"countryId":"IT","countryName":"Italy","handler":{},"hibernateLazyInitializer":{}},"streetAddress":"1297 Via Cola di Rie","postalCode":"00989","city":"Roma","stateProvince":null}
         
 ### Delete a Location [DELETE]
 
@@ -248,21 +246,20 @@ osapp4 is a RESTful API that exposes the sample HR MySQL database.
 ### List All Regions [GET]
 + Response 200 (application/json)
 
-        [
-        ]
+        [{"regionId":1,"regionName":"Europe"},{"regionId":2,"regionName":"Americas"},{"regionId":3,"regionName":"Asia"},{"regionId":4,"regionName":"Middle East and Africa"}]
         
 ## Region [/region]              
 ### Create a new Region [POST]
 
 + Request (application/json)
 
-        {}
+        {"regionId":1,"regionName":"Europe"}
 
 + Response 201 (application/json)
 
     + Body
 
-            {} 
+            {"regionId":1,"regionName":"Europe"}
             
             
 ## Region [/region/{id}]
@@ -274,19 +271,19 @@ osapp4 is a RESTful API that exposes the sample HR MySQL database.
 
 + Response 200 (application/json)
 
-        {}
+        {"regionId":1,"regionName":"Europe"}
         
 ### Update a Region [PUT]
 
 + Request (application/json)
 
-        {}
+        {"regionId":1,"regionName":"Europe"}
 
 + Response 201 (application/json)
 
     + Body
 
-            {}
+            {"regionId":1,"regionName":"Europe"}
         
 ### Delete a Region [DELETE]
 
