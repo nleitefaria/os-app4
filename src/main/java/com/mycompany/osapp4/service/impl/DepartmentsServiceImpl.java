@@ -19,16 +19,19 @@ public class DepartmentsServiceImpl implements DepartmentsService
 	@Autowired
 	private DepartmentsRepository repository;
 
+	@Transactional
 	public Long count() 
 	{
 		return repository.count();
 	}
 
+	@Transactional
 	public List<Departments> findAll() 
 	{
 		return repository.findAll();
 	}
 	
+	@Transactional
 	public Departments findOne(String id)
 	{
 		return repository.findOne(Integer.parseInt(id));

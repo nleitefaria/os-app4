@@ -19,22 +19,25 @@ public class RegionsServiceImpl implements RegionsService
 	@Autowired
 	private RegionsRepository repository;
 	
+	@Transactional
 	public Long count()
 	{
 		return repository.count();
 	}
-		
+	
+	@Transactional
 	public Regions findOne(String id)
 	{
 		return repository.findOne(Integer.parseInt(id));
 	}
 		
+	@Transactional
 	public List<Regions> findAll()
 	{
 		return repository.findAll();
 	}
 	
-	
+	@Transactional
 	public Page<Regions> findAll(int page, int size) 
 	{
 		return repository.findAll(new PageRequest(page, size));

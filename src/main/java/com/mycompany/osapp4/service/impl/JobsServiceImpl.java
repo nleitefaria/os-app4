@@ -19,21 +19,25 @@ public class JobsServiceImpl implements JobsService
 	@Autowired
 	private JobsRepository repository;
 
+	@Transactional
 	public Long count() 
 	{
 		return repository.count();
 	}
 	
+	@Transactional
 	public Jobs findOne(String id)
 	{
 		return repository.findOne(id);
 	}
 
+	@Transactional
 	public List<Jobs> findAll() 
 	{
 		return repository.findAll();
 	}
 	
+	@Transactional
 	public Page<Jobs> findAll(int page, int size) 
 	{
 		return repository.findAll(new PageRequest(page, size));

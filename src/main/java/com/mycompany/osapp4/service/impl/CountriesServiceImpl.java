@@ -24,25 +24,25 @@ public class CountriesServiceImpl implements CountriesService
 	@Autowired
 	private RegionsRepository repository2;
 
-	
+	@Transactional
 	public Long count() 
 	{
 		return repository1.count();
 	}
 
-	
+	@Transactional
 	public List<Countries> findAll() 
 	{
 		return repository1.findAll();
 	}
 	
-	
+	@Transactional
 	public Page<Countries> findAll(int page, int size) 
 	{
 		return repository1.findAll(new PageRequest(page, size));
 	}
 	
-
+	@Transactional
 	public Countries findOne(String id) 
 	{
 		return repository1.findOne(id);
